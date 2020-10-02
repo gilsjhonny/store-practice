@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components/macro';
+import Home from './pages/home';
+import Product from './pages/product';
 
-function App() {
+const GlobalStyles = createGlobalStyle`
+  html {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    position: relative;
+    height: 100vh;
+  }
+`;
+
+const AppContainer = styled.div`
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+`;
+
+const SquareBackground = styled.div`
+  height: calc(100% - 20px);
+  width: 100%;
+  background: #e5f8ff;
+  border-radius: 40px;
+  position: absolute;
+  top: 10px;
+  left: -50%;
+  transform: skewX(-20deg);
+  z-index: -1;
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyles />
+      <AppContainer>
+        <BrowserRouter>
+          <SquareBackground />
+          <Route exact path="/" component={Home} />
+          <Route path="/product" component={Product} />
+        </BrowserRouter>
+      </AppContainer>
     </div>
   );
-}
+};
 
 export default App;
