@@ -2,17 +2,30 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import Product from '../product';
 
-const ProductsListContainer = styled.div``;
+const ProductsListContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 100px;
+`;
 
-const ProductsList = () => {
+const ProductsList = ({ products }) => {
   return (
     <ProductsListContainer>
-      <Product
-        image={'http://placekitten.com/300/300'}
-        title="Some Title"
-        description="This is a description"
-        price={16}
-      />
+      {products.length === 0 ? (
+        <p>No products to display.</p>
+      ) : (
+        products.map((product) => (
+          <Product
+            imageUrl={product.imageUrl}
+            title={product.title}
+            description={product.description}
+            price={product.price}
+          />
+        ))
+      )}
     </ProductsListContainer>
   );
 };

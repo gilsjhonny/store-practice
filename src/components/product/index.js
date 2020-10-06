@@ -16,8 +16,8 @@ const Product = ({ imageUrl, title, description, price }) => {
       <ProductFooter>
         <Title>{title}</Title>
         <Description>{description}</Description>
-        <Price>{price}</Price>
-        <AddToCartButton />
+        <Price>${price}</Price>
+        <AddToCartButton>+</AddToCartButton>
       </ProductFooter>
     </ProductContainer>
   );
