@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   ProductContainer,
   ProductImage,
@@ -9,12 +10,14 @@ import {
   AddToCartButton,
 } from './styles/product';
 
-const Product = ({ imageUrl, title, description, price }) => {
+const Product = ({ imageUrl, title, description, price, id }) => {
   return (
     <ProductContainer>
       <ProductImage src={imageUrl} />
       <ProductFooter>
-        <Title>{title}</Title>
+        <Link to={`/product/${id}`}>
+          <Title>{title}</Title>
+        </Link>
         <Description>{description}</Description>
         <Price>${price}</Price>
         <AddToCartButton>+</AddToCartButton>

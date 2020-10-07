@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components/macro';
+import { Header } from './components';
 import Home from './pages/home';
 import Product from './pages/product';
 
@@ -42,8 +43,9 @@ const App = () => {
       <AppContainer>
         <BrowserRouter>
           <SquareBackground />
+          <Header />
           <Route exact path="/" component={Home} />
-          <Route path="/product" component={Product} />
+          <Route path="/product/:id" component={Product} />
         </BrowserRouter>
       </AppContainer>
     </div>
