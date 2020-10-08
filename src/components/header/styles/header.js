@@ -4,8 +4,8 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 40px;
-  padding: 40px 20px 10px 40px;
+  margin-top: 20px;
+  padding: 20px 40px;
 `;
 
 export const Logo = styled.div`
@@ -16,6 +16,7 @@ export const Logo = styled.div`
 `;
 
 export const SearchBar = styled.input`
+  height: 45px;
   width: 120px;
   padding: 10px;
   border-radius: 15px;

@@ -9,12 +9,15 @@ const GlobalStyles = createGlobalStyle`
   html {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
   }
 
   body {
     position: relative;
     height: 100vh;
+  }
+
+  *{
+    box-sizing: border-box;
   }
 `;
 
@@ -22,6 +25,8 @@ const AppContainer = styled.div`
   height: 100vh;
   position: relative;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
 `;
 
 const SquareBackground = styled.div`
