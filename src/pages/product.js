@@ -16,10 +16,8 @@ const Inner = styled.div`
   padding: 20px;
   display: flex;
 
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 `;
 
@@ -56,7 +54,9 @@ const ZoomInButton = styled.button`
   font-size: 25px;
 `;
 
-const ProductDetails = styled.div``;
+const ProductDetails = styled.div`
+  flex: 1;
+`;
 
 const Title = styled.h1`
   font-size: 40px;

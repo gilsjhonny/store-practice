@@ -1,9 +1,11 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components/macro';
 import { Header } from './components';
 import Home from './pages/home';
 import Product from './pages/product';
+import store from './redux/store';
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -45,14 +47,16 @@ const App = () => {
   return (
     <div>
       <GlobalStyles />
-      <AppContainer>
-        <BrowserRouter>
-          <SquareBackground />
-          <Header />
-          <Route exact path="/" component={Home} />
-          <Route path="/product/:id" component={Product} />
-        </BrowserRouter>
-      </AppContainer>
+      <Provider store={store}>
+        <AppContainer>
+          <BrowserRouter>
+            <SquareBackground />
+            <Header />
+            <Route exact path="/" component={Home} />
+            <Route path="/product/:id" component={Product} />
+          </BrowserRouter>
+        </AppContainer>
+      </Provider>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addOrUpdateProduct } from '../../redux/shoppingCartDuck';
 import {
   ProductContainer,
   ProductImage,
@@ -11,6 +13,8 @@ import {
 } from './styles/product';
 
 const Product = ({ imageUrl, title, description, price, id }) => {
+  const dispatch = useDispatch();
+
   return (
     <ProductContainer>
       <ProductImage src={imageUrl} />
@@ -20,7 +24,11 @@ const Product = ({ imageUrl, title, description, price, id }) => {
         </Link>
         <Description>{description}</Description>
         <Price>${price}</Price>
-        <AddToCartButton>+</AddToCartButton>
+        <AddToCartButton
+          onClick={() => dispatch(addOrUpdateProduct({ id, title, price }))}
+        >
+          +
+        </AddToCartButton>
       </ProductFooter>
     </ProductContainer>
   );

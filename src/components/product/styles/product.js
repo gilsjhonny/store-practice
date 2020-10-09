@@ -6,7 +6,7 @@ export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 300px;
+  width: 350px;
   height: 400px;
   padding: 10px;
   box-shadow: 0px 9px 38px 0px #dadada;
